@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [response,setResponse]= useState(false);
+  const [data,setData] = useState("");
+  const clickhandler =async()=>{
+  const resp = await axios.get("https://rupinder.onrender.com/");
+  if(resp.data){
+    setResponse(true);
+    setData(resp.data.name)
+  }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={clickhandler}>click</button>
+      {response && <p>{data}</p>}
     </div>
-  );
+  ); 
 }
 
 export default App;
