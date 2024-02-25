@@ -19,7 +19,7 @@ const SignUp = () => {
   };
   const formHandler =async (e)=>{
     e.preventDefault();
-    const response = await axios.post('http://localhost:8080/signup',
+    const response = await axios.post('https://newback-vc3e.onrender.com/signup',
     {
       username: formValues.username,
       password:formValues.password,
