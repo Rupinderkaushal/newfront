@@ -1,0 +1,115 @@
+.form-wrapper{
+    width: 40%;
+    padding: 10px;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    background: black;
+}
+.img-div{
+    overflow: hidden;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    width: 40%;
+    height: 90vh;
+}
+.form-div{
+    width: 100%;
+    padding: 10px;
+}
+.label-div{
+    color: white;
+    margin-bottom: 10px;
+}
+.label-div label{
+    display: block;
+    font-family: "Regular";
+    margin-bottom: 5px;
+}
+.label-div input{
+ border: none;
+ padding: 10px;
+ /* border-radius: 5px; */
+ width: 400px;
+ background: transparent;
+ font-family: 'Regular';
+ border-bottom: 1px solid #FFFFFF;
+ letter-spacing: 1px;
+ color: #FFFFFF;
+}
+.login-btn{
+    width: 430px;
+    margin-top: 20px;
+}
+.login-btn input{
+    background: blue;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px 40px;
+    cursor: pointer;
+    font-family: 'Bold';
+    line-height: 24px;
+    letter-spacing: 1px;
+    width: 100%;
+}
+.dont-account{
+    color: #FFFFFF;
+    font-family: "Regular";
+    margin-right: 10px;
+}
+.signup{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: "Regular";
+}
+.signup a{
+    color: skyblue;
+}
+.already{
+    color: #FFFFFF;
+    font-family: "Regular";
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+.already a{
+    margin-left: 10px;
+    color: skyblue;
+    font-family: "Medium";
+}
+
+
+@media(min-width:320px) and (max-width:768px){
+    .main-wrapper{
+        flex-direction: column;
+        height: fit-content;
+    }
+    .img-div{
+        width: 90%;
+        margin: auto;
+        height: 400px;
+    }
+    .form-wrapper{
+        width: 90%;
+        height: fit-content;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+.label-div input{
+width: 90%;
+}
+.label-div{
+    margin-bottom: 20px;
+}
+}

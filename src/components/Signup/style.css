@@ -1,0 +1,99 @@
+.signup-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: black;
+    height: 100vh;
+}
+.lottie-div{
+    background-color: #FFFFFF;
+    width: 45%;
+    height: 90vh;
+    padding: 10px;
+    border-radius: 15px;
+}
+.signup-form-div{
+    width: 45%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signup-form-div form{
+    width: 90%;
+    margin: auto;
+}
+.signup-form-content{
+    color: #FFFFFF;
+}
+.signup-form-content label{
+    display: block;
+    margin-bottom: 10px;
+    font-family: "Regular";
+}
+.signup-form-content input{
+    border: none;
+ padding: 10px 1px;
+ /* border-radius: 5px; */
+ width: 400px;
+ background: transparent;
+ font-family: 'Regular';
+ border-bottom: 1px solid #FFFFFF;
+ letter-spacing: 1px;
+ margin-bottom: 10px;
+ color: #FFFFFF;
+}
+.select-div{
+    color: #FFFFFF;
+    font-family: "Regular";
+}
+.select-div select{
+    width: 98%;
+    padding: 10px;
+    background: transparent;
+    color: #FFFFFF;
+    font-family: 'Regular';
+    letter-spacing: 1px;
+    border: none;
+    border-bottom: 1px solid ;
+    margin-top: 10px;
+}
+.select-div select:active{
+    border: none;
+    background: #000000;
+    color: #FFFFFF;
+}
+.select-div select:hover{
+    border: none;
+}
+@media(min-width:320px) and (max-width:768px){
+.signup-div{
+ flex-direction: column;
+ height: fit-content;
+}
+.lottie-div{
+    width: 100%;
+    height: 400px;
+}
+.signup-form-div{
+width: 100%;
+height: fit-content;
+margin-top: 50px;
+margin-bottom: 50px;
+}
+.signup-form-div form{
+    width: 95%;
+}
+.signup-form-content{
+    width: 100%;
+}
+.signup-form-content label{
+
+}
+.signup-form-content input{
+    width: 100%;
+}
+.login-btn{
+    width: 100%;
+}
+}
