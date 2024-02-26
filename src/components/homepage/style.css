@@ -1,0 +1,66 @@
+.homepage-wrapper{
+    height: 100vh;
+    background: green;
+}
+.logo-link-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+    border-bottom: 2px solid #FFFFFF;
+}
+.logo-div{
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 50px;
+    padding: 10px;
+}
+.logo-div img{
+    width: 100%;
+    height: 100%;
+}
+.web-links{
+    width: 40%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.web-links a{
+    color: #FFFFFF;
+    font-family: 'Medium';
+    text-decoration: none;
+    margin-left: 20px;
+}
+.text-lottie-div{
+    width: 95%;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.text-div{
+    border-radius: 20px;
+    padding: 10px;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50vh;
+    background-color: #FFFFFF;
+}
+.text-div h1{
+    color: #000000;
+    font-family: 'Bold';
+    letter-spacing: 1px;
+}
+.home-lottie-div{
+    width: 45%;
+    height: 70vh;
+}

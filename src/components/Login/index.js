@@ -22,7 +22,7 @@ const Login = () => {
       password: formValues.password
     });
     if(response.status === 200){
-      navigate('/')
+      navigate('/expenses')
     }
   };
   useEffect(() => {

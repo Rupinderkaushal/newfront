@@ -1,0 +1,47 @@
+.expense-wrapper{
+    display: flex;
+    background: black;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 95%;
+    margin: auto;
+    flex-direction: column;
+}
+.expense-form{
+    height: 50vh;
+    width: 95%;
+    padding: 10px;
+}
+.expense-list{
+    height: 50vh;
+    width: 95%;
+}
+.form-text{
+    color: #FFFFFF;
+    font-family: "Regular";
+    letter-spacing: 1px;
+}
+.form-text input{
+    color: #FFFFFF;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #FFFFFF;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-family: 'Regular';
+}
+.form-text input::placeholder{
+    font-family: "Regular";
+}
+.btn-div button{
+    border: none;
+    padding: 10px 20px;
+    font-family: "Medium";
+    border-radius: 5px;
+    background: blue;
+    color: #FFFFFF;
+}
+.list-item{
+    color: #FFFFFF;
+}
