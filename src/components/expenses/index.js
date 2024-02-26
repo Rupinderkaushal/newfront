@@ -16,7 +16,7 @@ const Expenses = () => {
     };
     const submitHandler=async(e)=>{
         e.preventDefault();
-        const resp = await axios.post('http://localhost:8080/add-expenses',{
+        const resp = await axios.post('https://newback-vc3e.onrender.com/add-expenses',{
             title:formValues.title,
             amount:formValues.amount,
             date:formValues.date,
@@ -26,7 +26,7 @@ const Expenses = () => {
         setFormValues({title:"",amount:"",date:""})
     };
     const expenseHandler=async()=>{
-        const resp = await axios.get('http://localhost:8080/list-expenses');
+        const resp = await axios.get('https://newback-vc3e.onrender.com/list-expenses');
             setExpenseList(resp.data);
             const total = resp.data.reduce((acc, curr) => acc + parseFloat(curr.amount), 0);
             setTotalAmount(total);
