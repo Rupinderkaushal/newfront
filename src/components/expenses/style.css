@@ -3,15 +3,24 @@
     background: black;
     align-items: center;
     justify-content: space-between;
-    height: fit-content;
+    width: 100%;
+    flex-direction: column;
+}
+.form-lottie-div{
     width: 95%;
     margin: auto;
-    flex-direction: column;
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .expense-form{
     height: 50vh;
-    width: 95%;
-    padding: 10px;
+    width: fit-content;
+    padding: 10px 20px;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
 }
 .expense-list{
     height: fit-content;
@@ -100,4 +109,48 @@
     border-radius: 5px;
     padding: 5px;
     cursor: pointer;
+}
+.header{
+    font-family: "Regular";
+    color: #FFFFFF;
+}
+.lottie-div{
+    height: 50vh;
+    width: 25%;
+}
+.btn-div{
+    text-align: center;
+}
+@media(min-width:320px)and (max-width:768px){
+.expense-wrapper{
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+.form-lottie-div{
+    flex-direction: column;
+    width: 95%;
+    padding: 0px;
+    margin: auto;
+}
+.expense-form{
+    height: fit-content;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.lottie-div{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.expense-list{
+    overflow: scroll;
+}
+.edit-wrapper{
+    display: flex;
+}
+.edit-btn{
+    margin-right: 10px;
+}
 }

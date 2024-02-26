@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './style.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import lottie from "lottie-web";
+
 const Expenses = () => {
+  const container = useRef(null);
     const [formValues,setFormValues]=useState({
         title:"",
         amount:"",
@@ -46,9 +49,27 @@ const Expenses = () => {
         alert("error occured")
     }
  };
+ useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../../Lotties/money.json"),
+    });
+    return () => {
+      lottie.destroy();
+    };
+  }, []);
+  
+  useEffect(()=>{
+    expenseHandler()
+  },[delHandler,editHandler])
     
   return (
     <div className='expense-wrapper'>
+        <h1 className='header'>Create Your Expense List</h1>
+        <div className='form-lottie-div'>
         <div className='expense-form'>
         <form onSubmit={submitHandler}>
             <div className='form-text'>
@@ -81,6 +102,8 @@ const Expenses = () => {
             </div>
         </form>
         </div>
+        <div className='lottie-div' ref={container}></div>
+        </div>
         <div className='expense-list'>
             <div className='btn-div'>
             <button onClick={expenseHandler}>List Expenses</button>
@@ -105,7 +128,7 @@ const Expenses = () => {
                         <td>{ new Date(val.date).toLocaleDateString()}</td>
                         <td>{getDayName()}</td>
                         <td>{val.amount}</td>
-                        <td>
+                        <td className='edit-wrapper'>
                             <button onClick={()=>editHandler(val._id)} className='edit-btn'>Edit</button>
                             <button onClick={()=>delHandler(val._id)} className='del-btn'>Delete</button>
                         </td>
