@@ -37,7 +37,7 @@ const Expenses = () => {
     navigate(`/edit-expenses/${data}`)
  };
  const delHandler =async(data)=>{
-    const resp = await axios.delete(`https://newback-vc3e.onrender.com/${data}`)
+    const resp = await axios.delete(`https://newback-vc3e.onrender.com/delete-expense/${data}`)
     if(resp.status === 200){
       alert("entry deleted successfully")
       expenseHandler()
