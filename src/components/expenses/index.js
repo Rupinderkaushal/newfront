@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 const Expenses = () => {
     const [formValues,setFormValues]=useState({
         title:"",
@@ -9,7 +10,7 @@ const Expenses = () => {
     });
     const [expenseList,setExpenseList]= useState([]);
     const [totalAmount,setTotalAmount]= useState(0);
-    let list;
+    const navigate = useNavigate();
     const handleChange=(e)=>{
         const{value,name}= e.target;
         setFormValues({...formValues,[name]: value})
@@ -31,7 +32,20 @@ const Expenses = () => {
             const total = resp.data.reduce((acc, curr) => acc + parseFloat(curr.amount), 0);
             setTotalAmount(total);
     };
-
+ const editHandler =async(data)=>{
+    console.log("id",data)
+    navigate(`/edit-expenses/${data}`)
+ };
+ const delHandler =async(data)=>{
+    const resp = await axios.delete(`https://newback-vc3e.onrender.com/${data}`)
+    if(resp.status === 200){
+      alert("entry deleted successfully")
+      expenseHandler()
+    }
+    else{
+        alert("error occured")
+    }
+ };
     
   return (
     <div className='expense-wrapper'>
@@ -75,9 +89,10 @@ const Expenses = () => {
                 <thead>
                     <tr style={{color:"white"}}>
                         <th>Title</th>
-                        <th>Amount</th>
                         <th>Date</th>
                         <th>Day</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -87,20 +102,22 @@ const Expenses = () => {
                       }
                       return<tr style={{color:"white"}}>
                        <td>{val.title}</td>
-                        <td>{val.amount}</td>
                         <td>{ new Date(val.date).toLocaleDateString()}</td>
                         <td>{getDayName()}</td>
+                        <td>{val.amount}</td>
+                        <td>
+                            <button onClick={()=>editHandler(val._id)} className='edit-btn'>Edit</button>
+                            <button onClick={()=>delHandler(val._id)} className='del-btn'>Delete</button>
+                        </td>
                         </tr>
             })}
-            <tr style={{color:"white"}}>
-                <td>Total</td>
-                <td>{totalAmount}</td>
-            </tr>
-
                 </tbody>
             </table>
            
-            
+            <div className='total-tr'>
+                <p>Grand Total</p>
+                <p className='total-amount'>{totalAmount}</p>
+            </div>
         </div>
     </div>
   )
