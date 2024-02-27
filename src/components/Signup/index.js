@@ -3,6 +3,8 @@ import lottie from "lottie-web";
 import './style.css';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import {  toast } from 'react-toastify';
+
 const SignUp = () => {
   const container = useRef(null);
   const Navigate =useNavigate();
@@ -18,19 +20,30 @@ const SignUp = () => {
     setFormValues({ ...formValues, [name]: value });
   };
   const formHandler =async (e)=>{
-    e.preventDefault();
-    const response = await axios.post('https://newback-vc3e.onrender.com/signup',
-    {
-      username: formValues.username,
-      password:formValues.password,
-      email: formValues.email,
-      gender:formValues.gender,
-      mobileNumber: formValues.mobileNumber
+    try {
+      e.preventDefault();
+      const response = await axios.post('https://newback-vc3e.onrender.com/signup',
+      {
+        username: formValues.username,
+        password:formValues.password,
+        email: formValues.email,
+        gender:formValues.gender,
+        mobileNumber: formValues.mobileNumber
+      }
+      );
+      if(response.status === 200){
+        toast.success("User Created Successfully", {
+          position: "top-right", // Define the position here
+        });
+        Navigate('/login')
+      }
+    } catch (error) {
+      console.log("************",error)
+      toast.error("User Creation Failed", {
+        position: "top-right", // Define the position here
+      });
     }
-    );
-    if(response){
-      Navigate('/login')
-    }
+   
   };
   useEffect(() => {
     lottie.loadAnimation({

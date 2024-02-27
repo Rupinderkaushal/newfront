@@ -199,7 +199,6 @@
 }
 .expense-list{
     overflow: scroll;
-    border: 1px solid green;
     width: 90%;
     margin: auto;
 }

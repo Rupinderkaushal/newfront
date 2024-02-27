@@ -38,6 +38,7 @@ const Login = () => {
       setLoading(false)
     }
     } catch (error) {
+      setLoading(false)
       toast.error('Login Error',{
         position:"top-right"
       })
