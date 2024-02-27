@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {  toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import { Spin } from 'antd';
 
 const Login = () => {
   const container = useRef(null);
@@ -14,12 +15,14 @@ const Login = () => {
     password:""
   });
   const [isFormValid, setIsFormValid] = useState(false);
+  const [loading,setLoading]=useState(false);
   const handleChange = (e)=>{
      const {name,value}= e.target;
      setFormValues({...formValues,[name]:value})
   };
   const submithandler=async(e)=>{
     try {
+      setLoading(true)
       e.preventDefault();
     const response = await axios.post('https://newback-vc3e.onrender.com/login',{
       email:formValues.email,
@@ -29,9 +32,10 @@ const Login = () => {
       toast.success("Login Success", {
         position: "top-right", // Define the position here
       });
+      navigate('/expenses')
       localStorage.setItem("token",response.data.accessToken)
       localStorage.setItem("user",response.data.message.userName)
-      navigate('/expenses')
+      setLoading(false)
     }
     } catch (error) {
       toast.error('Login Error',{
@@ -87,6 +91,9 @@ const Login = () => {
         </div>
       </form>
       </div>
+      {loading && <div className='loader-div'>
+        <Spin/> 
+        </div>}
     </div>
   )
 }

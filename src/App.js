@@ -1,38 +1,47 @@
 import './App.css';
 import Login from './components/Login';
-import {Route,Routes,Navigate} from 'react-router-dom';
+import {Route,Routes,Navigate,Outlet} from 'react-router-dom';
 import SignUp from './components/Signup';
 import HomePage from './components/homepage';
 import Expenses from './components/expenses';
 import EditExpenses from './components/editExpense';
 import { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
+import AddExpense from './components/addExpense';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const handleLogin =async() => {
-    const token = await localStorage.getItem('token');
-    if(token){
-    setIsLoggedIn(true)
-    }
-  };
+  const PrivateRoutes = () => {
+    return(
+        isLoggedIn ? <Outlet/> : <Navigate to="/login"/>
+    )
+} 
   useEffect(()=>{
-    handleLogin()
+    const checkLoginStatus = async () => {
+      const token = await localStorage.getItem('token');
+      if (token) {
+        console.log("token",token)
+        setIsLoggedIn(true);
+      }
+    };
+
+    checkLoginStatus();
   },[])
+  
+ 
 
   return (
     <div>
       <ToastContainer/>
-      {!isLoggedIn && <Navigate to="/login" />}
       <Routes>
+      <Route path='/' element={<HomePage/>}/>
       <Route path="/signup" element={<SignUp/>} />
       <Route path="/login" element={<Login/>} />
-      {isLoggedIn && (
-          <>
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/expenses' element={<Expenses/>} />
-        <Route path='/edit-expenses/:id' element={<EditExpenses/>}/>
-        </>)}
+      <Route element={<PrivateRoutes/>}>
+      <Route path="/expenses" element={<Expenses />} />
+      <Route path="/edit-expenses/:id" element={<EditExpenses />} />
+      <Route path="/add-expense" element={<AddExpense/>}/>
+      </Route>
       </Routes>
     </div>
   ); 

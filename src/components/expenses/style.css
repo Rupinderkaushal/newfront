@@ -5,6 +5,7 @@
     justify-content: space-between;
     width: 100%;
     flex-direction: column;
+    height: 100vh;
 }
 .form-lottie-div{
     width: 95%;
@@ -71,7 +72,7 @@
     text-align: left;
 
 }
-.expense-list table th:nth-child(3),.expense-list table th:nth-child(4),.expense-list table th:nth-child(2){
+.expense-list table th:nth-child(3),.expense-list table th:nth-child(4),.expense-list table th:nth-child(5),.expense-list table th:nth-child(2){
     text-align: center;
 }
 .expense-list table td:nth-child(2),.expense-list table td:nth-child(3),.expense-list table td:nth-child(4){
@@ -100,6 +101,7 @@
     padding: 5px;
     margin-right: 5px;
     cursor: pointer;
+    width: 45%;
 }
 .del-btn{
     background: red;
@@ -109,6 +111,7 @@
     border: none;
     border-radius: 5px;
     padding: 5px;
+    width: 45%;
     cursor: pointer;
 }
 .header{
@@ -131,7 +134,6 @@
 }
 .expense-nav{
     width: 95%;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -144,6 +146,25 @@
 }
 .hello span{
     font-family: "Bold";
+}
+.logout-btn{
+    background: transparent;
+    border: none;
+}
+.create-expense{
+    color: #FFFFFF;
+    font-family: "Regular";
+    letter-spacing: 1px;
+}
+.create-expense a{
+    color: green;
+    font-family: 'Bold';
+    margin-left: 10px;
+}
+.edit-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 @media(min-width:320px)and (max-width:768px){
 .expense-wrapper{

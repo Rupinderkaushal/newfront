@@ -1,0 +1,10 @@
+.conatine{
+    height: 100vh;
+    background: wheat;
+}
+.form-text{
+    color: black;
+}
+.form-text input ,.form-text input::placeholder {
+    color: #000000;
+}
