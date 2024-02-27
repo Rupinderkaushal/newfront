@@ -1,6 +1,6 @@
 .expense-wrapper{
     display: flex;
-    background: black;
+    background: #6e6ecc;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -69,6 +69,7 @@
 }
 .expense-list table th{
     text-align: left;
+
 }
 .expense-list table th:nth-child(3),.expense-list table th:nth-child(4),.expense-list table th:nth-child(2){
     text-align: center;
@@ -80,14 +81,14 @@
     color: #FFFFFF;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     font-family: "Regular";
     
 }
 .total-amount{
     font-family: "Bold";
     text-align: center;
-    margin-right: 60px;
+    margin-left: 60px;
 }
 .edit-btn{
     background: green;
@@ -121,11 +122,32 @@
 .btn-div{
     text-align: center;
 }
+.btn-div h1{
+    color: #FFFFFF;
+    font-family: "Regular";
+}
+.title-td{
+    text-transform: capitalize;
+}
+.expense-nav{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.hello{
+    color: #FFFFFF;
+    font-family: "Regular";
+    letter-spacing: 1px;
+}
+.hello span{
+    font-family: "Bold";
+}
 @media(min-width:320px)and (max-width:768px){
 .expense-wrapper{
-    flex-direction: column;
-    width: 100%;
-    padding: 10px;
+ height: 100vh;
 }
 .form-lottie-div{
     flex-direction: column;
@@ -135,22 +157,50 @@
 }
 .expense-form{
     height: fit-content;
-    width: 90%;
+    width: fit-content;
     margin: auto;
     margin-bottom: 30px;
+    margin-top: 20px;
+    padding: 20px 10px;
+}
+.form-text input{
+    width: 90%;
+
+}
+.form-text input::placeholder{
+    /* color: #FFFFFF; */
 }
 .lottie-div{
     width: 90%;
     margin: auto;
     margin-bottom: 30px;
+    display: none;
 }
 .expense-list{
     overflow: scroll;
+    border: 1px solid green;
+    width: 90%;
+    margin: auto;
 }
 .edit-wrapper{
     display: flex;
 }
 .edit-btn{
     margin-right: 10px;
+}
+.header{
+    font-size: 20px;
+
+}
+.btn-div button{
+ margin-top: 20px;
+ width: 100%;
+}
+.btn-div h1{
+    color: #FFFFFF;
+    font-family: "Regular";
+}
+table tr{
+    height: 50px;
 }
 }

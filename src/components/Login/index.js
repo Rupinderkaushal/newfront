@@ -3,6 +3,8 @@ import './style.css';
 import lottie from "lottie-web";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import {  toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const container = useRef(null);
@@ -11,19 +13,32 @@ const Login = () => {
     email:"",
     password:""
   });
+  const [isFormValid, setIsFormValid] = useState(false);
   const handleChange = (e)=>{
      const {name,value}= e.target;
      setFormValues({...formValues,[name]:value})
   };
   const submithandler=async(e)=>{
-    e.preventDefault();
+    try {
+      e.preventDefault();
     const response = await axios.post('https://newback-vc3e.onrender.com/login',{
       email:formValues.email,
       password: formValues.password
     });
     if(response.status === 200){
+      toast.success("Login Success", {
+        position: "top-right", // Define the position here
+      });
+      localStorage.setItem("token",response.data.accessToken)
+      localStorage.setItem("user",response.data.message.userName)
       navigate('/expenses')
     }
+    } catch (error) {
+      toast.error('Login Error',{
+        position:"top-right"
+      })
+    }
+    
   };
   useEffect(() => {
     lottie.loadAnimation({
@@ -37,6 +52,10 @@ const Login = () => {
       lottie.destroy();
     };
   }, []);
+  useEffect(() => {
+    // Check if both email and password are not empty
+    setIsFormValid(formValues.email.trim() !== '' && formValues.password.trim() !== '');
+  }, [formValues.email, formValues.password])
 
   return (
     <div className='main-wrapper'>
@@ -60,7 +79,7 @@ const Login = () => {
         placeholder='Enter your password'/>
         </div>
         <div className='login-btn'>
-        <input  type='submit' value='Login' />
+        <input  type='submit' value='Login' disabled={!isFormValid}  />
         </div>
         <div className='signup'>
         <p className='dont-account'>Don't Have a Account ?</p>

@@ -88,6 +88,11 @@
     color: skyblue;
     font-family: "Medium";
 }
+.login-btn input[type="submit"]:disabled {
+    background-color: #ccc; /* Your desired background color for disabled state */
+    color: #666; /* Text color for disabled state */
+    cursor: not-allowed;
+  }
 
 
 @media(min-width:320px) and (max-width:768px){

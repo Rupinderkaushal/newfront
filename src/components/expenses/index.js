@@ -11,6 +11,7 @@ const Expenses = () => {
         amount:"",
         date:"",
     });
+    const [user,setUser]=useState();
     const [expenseList,setExpenseList]= useState([]);
     const [totalAmount,setTotalAmount]= useState(0);
     const navigate = useNavigate();
@@ -49,6 +50,10 @@ const Expenses = () => {
         alert("error occured")
     }
  };
+const  logoutHandler=()=>{
+    localStorage.removeItem("token")
+    navigate('/login')
+};
  useEffect(() => {
     lottie.loadAnimation({
       container: container.current,
@@ -64,10 +69,20 @@ const Expenses = () => {
   
   useEffect(()=>{
     expenseHandler()
-  },[delHandler,editHandler])
+  },[delHandler,editHandler]);
+  useEffect(()=>{
+   const user= localStorage.getItem('user');
+   if(user){
+    setUser(user)
+   }
+  },[])
     
   return (
     <div className='expense-wrapper'>
+        <div className='expense-nav'>
+        <p className='hello'>Hello , <span>{user}</span></p>
+        <button onClick={logoutHandler} >Logout</button>
+        </div>
         <h1 className='header'>Create Your Expense List</h1>
         <div className='form-lottie-div'>
         <div className='expense-form'>
@@ -106,7 +121,7 @@ const Expenses = () => {
         </div>
         <div className='expense-list'>
             <div className='btn-div'>
-            <button onClick={expenseHandler}>List Expenses</button>
+            <h1>Expenses List</h1>
             </div>
             <table>
                 <thead>
@@ -124,7 +139,7 @@ const Expenses = () => {
                         return date.toLocaleDateString(locale, {weekday: 'long'});
                       }
                       return<tr style={{color:"white"}}>
-                       <td>{val.title}</td>
+                       <td className='title-td'>{val.title}</td>
                         <td>{ new Date(val.date).toLocaleDateString()}</td>
                         <td>{getDayName()}</td>
                         <td>{val.amount}</td>
