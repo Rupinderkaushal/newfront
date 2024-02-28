@@ -82,7 +82,7 @@ const  logoutHandler=()=>{
                     function getDayName(date = new Date(val.date), locale = 'en-US') {
                         return date.toLocaleDateString(locale, {weekday: 'long'});
                       }
-                      return<tr style={{color:"white"}}>
+                      return<tr style={{color:"white",border:'1px solid red'}}>
                        <td className='title-td'>{val.title}</td>
                         <td>{ new Date(val.date).toLocaleDateString()}</td>
                         <td>{getDayName()}</td>

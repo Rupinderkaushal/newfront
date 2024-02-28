@@ -8,6 +8,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 const AddExpense = () => {
   const container = useRef(null);
   const navigate = useNavigate();
+  const user = localStorage.getItem('user');
     const [formValues,setFormValues]=useState({
         title:"",
         amount:"",
@@ -22,10 +23,11 @@ const AddExpense = () => {
     };
     const submitHandler=async(e)=>{
         e.preventDefault();
-        const resp = await axios.post('https://newback-vc3e.onrender.com/add-expenses',{
+        const resp = await axios.post('http://localhost:8080/add-expenses',{
             title:formValues.title,
             amount:formValues.amount,
             date:formValues.date,
+            addedBy:user
         });
         if(resp.status){
             navigateHandler();
