@@ -3,6 +3,8 @@ import './style.css';
 import axios from 'axios';
 import lottie from "lottie-web";
 import { Navigate, useNavigate } from 'react-router-dom';
+import {  toast } from 'react-toastify';
+
 
 
 const AddExpense = () => {
@@ -22,17 +24,27 @@ const AddExpense = () => {
         navigate('/expenses')
     };
     const submitHandler=async(e)=>{
-        e.preventDefault();
-        const resp = await axios.post('http://localhost:8080/add-expenses',{
-            title:formValues.title,
-            amount:formValues.amount,
-            date:formValues.date,
-            addedBy:user
-        });
-        if(resp.status){
-            navigateHandler();
+        try {
+            e.preventDefault();
+            const resp = await axios.post('https://newback-vc3e.onrender.com/add-expenses',{
+                title:formValues.title,
+                amount:formValues.amount,
+                date:formValues.date,
+                addedBy:user
+            });
+            if(resp.status === 200){
+                toast.success("added Successfully", {
+                    position: "top-right", // Define the position here
+                  });
+                navigateHandler();
+            }
+            setFormValues({title:"",amount:"",date:""})
+        } catch (error) {
+            toast.success("Error during creation", {
+                position: "top-right", // Define the position here
+              });
         }
-        setFormValues({title:"",amount:"",date:""})
+       
     };
     
     useEffect(() => {
