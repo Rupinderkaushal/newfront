@@ -14,7 +14,7 @@ const Expenses = () => {
     const navigate = useNavigate();
    
     const expenseHandler=async()=>{
-        const resp = await axios.get('https://newback-vc3e.onrender.com/list-expenses');
+        const resp = await axios.get(`http://localhost:8080/list-expenses/${user}`);
             setExpenseList(resp.data);
             const total = resp.data.reduce((acc, curr) => acc + parseFloat(curr.amount), 0);
             setTotalAmount(total);
@@ -44,15 +44,18 @@ const  logoutHandler=()=>{
 };
  
   
-  useEffect(()=>{
-    expenseHandler()
-  },[]);
+
   useEffect(()=>{
    const user= localStorage.getItem('user');
    if(user){
     setUser(user)
    }
   },[])
+  useEffect(() => {
+    if (user) {
+        expenseHandler();
+    }
+}, [user]);
     
   return (
     <div className='expense-wrapper'>
@@ -82,7 +85,7 @@ const  logoutHandler=()=>{
                     function getDayName(date = new Date(val.date), locale = 'en-US') {
                         return date.toLocaleDateString(locale, {weekday: 'long'});
                       }
-                      return<tr style={{color:"white",border:'1px solid red'}}>
+                      return<tr style={{color:"white"}}>
                        <td className='title-td'>{val.title}</td>
                         <td>{ new Date(val.date).toLocaleDateString()}</td>
                         <td>{getDayName()}</td>

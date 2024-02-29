@@ -20,14 +20,14 @@ function App() {
     const checkLoginStatus = async () => {
       const token = await localStorage.getItem('token');
       if (token) {
-        console.log("token",token)
         setIsLoggedIn(true);
       }
     };
 
     checkLoginStatus();
   },[])
-  
+
+  console.log("isuserLogegdiN",isLoggedIn)
  
 
   return (

@@ -24,7 +24,7 @@ const Login = () => {
     try {
       setLoading(true)
       e.preventDefault();
-    const response = await axios.post('https://newback-vc3e.onrender.com/login',{
+    const response = await axios.post('http://localhost:8080/login',{
       email:formValues.email,
       password: formValues.password
     });
@@ -33,6 +33,7 @@ const Login = () => {
         position: "top-right", // Define the position here
       });
       navigate('/expenses')
+      sessionStorage.setItem("token",response.data.accessToken)
       localStorage.setItem("token",response.data.accessToken)
       localStorage.setItem("user",response.data.message.userName)
       setLoading(false)

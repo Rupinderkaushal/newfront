@@ -26,7 +26,7 @@ const AddExpense = () => {
     const submitHandler=async(e)=>{
         try {
             e.preventDefault();
-            const resp = await axios.post('https://newback-vc3e.onrender.com/add-expenses',{
+            const resp = await axios.post('http://localhost:8080/add-expenses',{
                 title:formValues.title,
                 amount:formValues.amount,
                 date:formValues.date,
