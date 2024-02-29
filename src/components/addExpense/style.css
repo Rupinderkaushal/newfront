@@ -8,3 +8,37 @@
 .form-text input ,.form-text input::placeholder {
     color: #000000;
 }
+.conatine h1{
+    margin-top: 0px;
+    padding-top: 20px;
+    text-align: center;
+    color: green;
+    font-family: 'Regular';
+}
+.conatine .expense-form{
+    width: 45%;
+}
+.conatine .lottie-div{
+    width: 45%;
+}
+.conatine .expense-form .form-text input{
+    width: 95%;
+}
+.conatine .btn-div{
+    width: 95%;
+}
+.conatine .btn-div button{
+    width: 50%;
+    margin: auto;
+    background: green;
+    margin-top: 20px;
+}
+@media(min-width:320px) and (max-width:768px){
+    .conatine .form-lottie-div{
+        width: 95%;
+        margin: auto;
+    }
+.conatine .expense-form{
+width: 88%;
+}
+}

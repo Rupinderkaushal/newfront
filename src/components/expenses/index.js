@@ -40,7 +40,7 @@ const Expenses = () => {
  };
 const  logoutHandler=()=>{
     localStorage.removeItem("token")
-    navigate('/login')
+    navigate('/')
 };
  
   

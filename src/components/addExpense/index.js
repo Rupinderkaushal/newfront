@@ -61,7 +61,7 @@ const AddExpense = () => {
       }, []);
   return (
     <div className='conatine'>
-        <h1 style={{color:"red"}} className='header'>Create Your Expense List</h1>
+        <h1>Create Your Expense List</h1>
         <div className='form-lottie-div'>
         <div className='expense-form'>
         <form onSubmit={submitHandler}>
