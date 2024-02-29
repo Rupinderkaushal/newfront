@@ -14,7 +14,7 @@ const Expenses = () => {
     const navigate = useNavigate();
    
     const expenseHandler=async()=>{
-        const resp = await axios.get(`http://localhost:8080/list-expenses/${user}`);
+        const resp = await axios.get(`https://newback-vc3e.onrender.com/list-expenses/${user}`);
             setExpenseList(resp.data);
             const total = resp.data.reduce((acc, curr) => acc + parseFloat(curr.amount), 0);
             setTotalAmount(total);
