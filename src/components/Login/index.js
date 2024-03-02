@@ -33,9 +33,9 @@ const Login = () => {
         position: "top-right", // Define the position here
       });
       navigate('/expenses')
-      sessionStorage.setItem("token",response.data.accessToken)
       localStorage.setItem("token",response.data.accessToken)
       localStorage.setItem("user",response.data.message.userName)
+      localStorage.setItem("gender",response.data.message.gender)
       setLoading(false)
     }
     } catch (error) {

@@ -4,6 +4,10 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import {  toast } from 'react-toastify';
+import lottie from "lottie-web";
+import maleIcon from "../../assets/male.jpeg";
+import pic from "../../assets/female.jpg";
+
 
 
 const Expenses = () => {
@@ -11,16 +15,21 @@ const Expenses = () => {
     const [user,setUser]=useState();
     const [expenseList,setExpenseList]= useState([]);
     const [totalAmount,setTotalAmount]= useState(0);
+    const [isLoading,setIsLoading] = useState(false);
+    const [gender,setGender] =useState();
     const navigate = useNavigate();
+  const container = useRef(null);
+   
    
     const expenseHandler=async()=>{
+        setIsLoading(true)
         const resp = await axios.get(`https://newback-vc3e.onrender.com/list-expenses/${user}`);
             setExpenseList(resp.data);
             const total = resp.data.reduce((acc, curr) => acc + parseFloat(curr.amount), 0);
             setTotalAmount(total);
+            setIsLoading(false)
     };
  const editHandler =async(data)=>{
-    console.log("id",data)
     navigate(`/edit-expenses/${data}`)
  };
  const delHandler =async(data)=>{
@@ -43,12 +52,12 @@ const  logoutHandler=()=>{
     navigate('/')
 };
  
-  
-
   useEffect(()=>{
    const user= localStorage.getItem('user');
+   const gender= localStorage.getItem('gender');
    if(user){
     setUser(user)
+    setGender(gender)
    }
   },[])
   useEffect(() => {
@@ -56,11 +65,25 @@ const  logoutHandler=()=>{
         expenseHandler();
     }
 }, [user]);
+useEffect(() => {
+    lottie.loadAnimation({
+      container: container.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: require("../../Lotties/loading.json"),
+    });
+    return () => {
+      lottie.destroy();
+    };
+  }, []);
+
+
     
   return (
     <div className='expense-wrapper'>
         <div className='expense-nav'>
-        <p className='hello'>Hello , <span>{user}</span></p>
+        <p className='hello'>Hello , <span>{user}</span><span className='yeti' ><img  src={gender ==='male' ? maleIcon : pic } /></span></p>
         <button className='logout-btn' onClick={logoutHandler} ><RiLogoutCircleRLine color='red' size={20} /></button>
         </div>
         <div className='create-expense'>
@@ -80,6 +103,7 @@ const  logoutHandler=()=>{
                         <th>Actions</th>
                     </tr>
                 </thead>
+                
                 <tbody>
                 {expenseList && expenseList.map((val)=>{
                     function getDayName(date = new Date(val.date), locale = 'en-US') {
