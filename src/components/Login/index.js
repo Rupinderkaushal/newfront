@@ -32,7 +32,7 @@ const Login = () => {
       toast.success("Login Success", {
         position: "top-right", // Define the position here
       });
-      navigate('/expenses')
+      navigate('/homepage')
       localStorage.setItem("token",response.data.accessToken)
       localStorage.setItem("user",response.data.message.userName)
       localStorage.setItem("gender",response.data.message.gender)
@@ -82,6 +82,7 @@ const Login = () => {
         name="password"
         value={formValues.password}
         onChange={handleChange}
+        type='password'
         placeholder='Enter your password'/>
         </div>
         <div className='login-btn'>

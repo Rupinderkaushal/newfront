@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './style.css';
 import { NavLink } from 'react-router-dom';
-import Logo from "../../assets/download-removebg-preview.png";
+import Logo from "../../assets/logo.png";
 import lottie from "lottie-web";
 import PremiumPic from "../../assets/premium_photo-1678823283274-358b3676fe5e.avif";
 
@@ -27,8 +27,10 @@ const HomePage = () => {
             <img src={Logo} alt="Logo"/>
           </div>
           <div className='web-links'>
-            <NavLink to='/login'>Login</NavLink>
-            <NavLink to='/signup'>Signup</NavLink>
+            <NavLink to='/expenses'>Expenses</NavLink>
+            <NavLink to='/todo'>Todo</NavLink>
+            <NavLink to='/suggestions'>Suggestions</NavLink>
+            <NavLink to='/goals'>Goals</NavLink>
           </div>
         </div>
         <div className='text-lottie-div'>

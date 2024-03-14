@@ -137,11 +137,17 @@
     width: max-content;
 }
 .expense-nav{
+  width: 100%;
+  background-color: #00246B;
+
+}
+
+.expense-nav-link{
     width: 95%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    margin: auto;
 }
 .hello{
     color: #FFFFFF;
@@ -170,7 +176,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: 'Regular';
+    font-family: 'Medium';
     cursor: pointer;
 }
 .create-expense{
@@ -250,6 +256,19 @@ tbody tr .edit-wrapper{
 .table-div-wrapper{
     height: 400px;
     overflow-y: scroll;
+}
+.homepagelogout{
+  display: flex;
+  align-items: center;
+  justify-content: sb;
+}
+.homepagelogout button{
+    margin-right: 10px;
+    font-family: "Medium";
+    color: #FFFFFF;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 @media(min-width:320px)and (max-width:768px){
 .expense-wrapper{

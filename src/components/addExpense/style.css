@@ -30,8 +30,19 @@
 .conatine .btn-div button{
     width: 50%;
     margin: auto;
-    background: green;
+    background: #008000;
     margin-top: 20px;
+}
+.goback-button{
+    margin-top: 20px;
+    margin-left: 50px;
+    background: black;
+    color: white;
+    font-family: "Regular";
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
 }
 @media(min-width:320px) and (max-width:768px){
     .conatine .form-lottie-div{

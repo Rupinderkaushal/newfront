@@ -21,7 +21,7 @@ const AddExpense = () => {
         setFormValues({...formValues,[name]: value})
     };
     const navigateHandler=()=>{
-        navigate('/expenses')
+        navigate('/homepage')
     };
     const submitHandler=async(e)=>{
         try {
@@ -46,6 +46,10 @@ const AddExpense = () => {
         }
        
     };
+
+    const backhandler=()=>{
+        navigate('/homepage')
+    };
     
     useEffect(() => {
         lottie.loadAnimation({
@@ -61,6 +65,7 @@ const AddExpense = () => {
       }, []);
   return (
     <div className='conatine'>
+        <button onClick={backhandler} className='goback-button'>Go Back</button>
         <h1>Create Your Expense List</h1>
         <div className='form-lottie-div'>
         <div className='expense-form'>

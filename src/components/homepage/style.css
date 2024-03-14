@@ -1,6 +1,6 @@
 .homepage-wrapper{
     height: 100vh;
-    /* background: green; */
+    background: #301505;
 }
 .logo-link-div {
     display: flex;
@@ -19,11 +19,12 @@
     height: 50px;
     border-radius: 50px;
     padding: 10px;
-    background: white;
+    /* background: white; */
 }
 .logo-div img{
     width: 100%;
     height: 100%;
+    border-radius: 100%;
 }
 .web-links{
     width: 40%;

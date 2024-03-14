@@ -10,9 +10,6 @@ import pic from "../../assets/female.jpg";
 import { AiOutlineFolderAdd, AiFillSignal } from "react-icons/ai";
 import { GiTargetDummy } from "react-icons/gi";
 
-
-
-
 const Expenses = () => {
     
     const [user,setUser]=useState();
@@ -54,6 +51,9 @@ const  logoutHandler=()=>{
     localStorage.removeItem("token")
     navigate('/')
 };
+const homepageHandler=()=>{
+  navigate('/homepage')
+}
  
   useEffect(()=>{
    const user= localStorage.getItem('user');
@@ -86,8 +86,13 @@ useEffect(() => {
   return (
     <div className='expense-wrapper'>
         <div className='expense-nav'>
+          <div className='expense-nav-link'>
         <p className='hello'>Hello,<span> {user}</span><span className='yeti' ><img  src={gender ==='male' ? maleIcon : pic } /></span></p>
+        <div className='homepagelogout'>
+          <button onClick={homepageHandler}>HomePage</button>
         <button className='logout-btn' onClick={logoutHandler} >Logout  <RiLogoutCircleRLine style={{marginLeft:'10px'}} color='red' size={20} /></button>
+        </div>
+        </div>
         </div>
         <div className='create-expense'>
             <p>This is the list of your Expenses. if you want to add new<span><Link to='/add-expense'>clickHere</Link></span></p>
@@ -123,7 +128,7 @@ useEffect(() => {
                 </thead>
                 
                 <tbody>
-                {expenseList && expenseList.slice(0,15).map((val)=>{
+                {expenseList && expenseList.map((val)=>{
                     function getDayName(date = new Date(val.date), locale = 'en-US') {
                         return date.toLocaleDateString(locale, {weekday: 'long'});
                       }

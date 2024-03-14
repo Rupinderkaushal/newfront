@@ -8,25 +8,25 @@ import EditExpenses from './components/editExpense';
 import { useContext, useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import AddExpense from './components/addExpense';
-import { LoggedInContext } from './store/logginContext';
 import ProtectedRoutes from './privateRoutes';
+import Todo from './components/toDo';
+import NotFound from './components/notFound';
 
 function App() {
-
- 
-
   return (
     <div>
       <ToastContainer/>
       <Routes>
-      <Route path='/' element={<HomePage/>}/>
+      <Route path='/' element={<Login/>}/>
       <Route path="/signup" element={<SignUp/>} />
-      <Route path="/login" element={<Login/>} />
+      <Route path="/homepage" element={<HomePage/>} />
       <Route element={<ProtectedRoutes/>}>
       <Route path="/expenses" element={<Expenses />} />
       <Route path="/edit-expenses/:id" element={<EditExpenses />} />
       <Route path="/add-expense" element={<AddExpense/>}/>
+      <Route path="/todo" element={<Todo/>}/>
       </Route>
+      <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
   ); 
