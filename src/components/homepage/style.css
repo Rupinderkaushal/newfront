@@ -1,14 +1,15 @@
 .homepage-wrapper{
     height: 100vh;
-    background: green;
+    /* background: green; */
 }
 .logo-link-div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 95%;
+    /* width: 95%; */
     margin: auto;
     border-bottom: 2px solid #FFFFFF;
+    /* background-color: white; */
 }
 .logo-div{
     width: 50px;
@@ -18,6 +19,7 @@
     height: 50px;
     border-radius: 50px;
     padding: 10px;
+    background: white;
 }
 .logo-div img{
     width: 100%;
@@ -29,40 +31,52 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-right: 20px;
 }
 .web-links a{
-    color: #FFFFFF;
     font-family: 'Medium';
     text-decoration: none;
     margin-left: 20px;
+    color: #FFFFFF;
 }
 .text-lottie-div{
-    width: 95%;
+    /* width: 95%; */
     margin: auto;
     margin-top: 40px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    background: blue;
+    border-radius: 10px;
 }
 .text-div{
     border-radius: 20px;
     padding: 10px;
-    width: 45%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 50vh;
-    background-color: #FFFFFF;
+    /* height: 50vh; */
+    /* background-color: #FFFFFF; */
 }
 .text-div h1{
-    color: #000000;
+    color: white;
     font-family: 'Bold';
     letter-spacing: 1px;
 }
 .home-lottie-div{
     width: 45%;
     height: 70vh;
+}
+.middle_div{
+    border: 1px solid green;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+.middle_div img{
+    width: 100%;
+    height: 100%;
 }
 @media(min-width:320px) and (max-width:768px){
 .text-lottie-div{

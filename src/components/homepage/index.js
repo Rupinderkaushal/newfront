@@ -3,6 +3,7 @@ import './style.css';
 import { NavLink } from 'react-router-dom';
 import Logo from "../../assets/download-removebg-preview.png";
 import lottie from "lottie-web";
+import PremiumPic from "../../assets/premium_photo-1678823283274-358b3676fe5e.avif";
 
 
 const HomePage = () => {
@@ -37,6 +38,9 @@ const HomePage = () => {
             <h1>Track of Expenses</h1>
           </div>
           <div className='home-lottie-div' ref={container}></div>
+        </div>
+        <div className='middle_div'>
+          <img src={PremiumPic} />
         </div>
     </div>
   )
