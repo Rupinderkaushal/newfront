@@ -25,7 +25,7 @@ const Login = () => {
       setLoading(true)
       e.preventDefault();
     const response = await axios.post('https://newback-vc3e.onrender.com/login',{
-      email:formValues.email,
+      email:formValues.email.toLowerCase( ),
       password: formValues.password
     });
     if(response.status === 200){

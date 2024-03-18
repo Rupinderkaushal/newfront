@@ -65,8 +65,8 @@ const AddExpense = () => {
       }, []);
   return (
     <div className='conatine'>
-        <button onClick={backhandler} className='goback-button'>Go Back</button>
-        <h1>Create Your Expense List</h1>
+        {/* <button onClick={backhandler} className='goback-button'>Go Back</button> */}
+        {/* <h1>Create Your Expense List</h1> */}
         <div className='form-lottie-div'>
         <div className='expense-form'>
         <form onSubmit={submitHandler}>

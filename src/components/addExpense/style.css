@@ -1,12 +1,16 @@
 .conatine{
-    height: 100vh;
-    background: wheat;
+    height: 100%;
+    background: transparent;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .form-text{
-    color: black;
+    color: #FFFFFF;
 }
 .form-text input ,.form-text input::placeholder {
-    color: #000000;
+    color: #FFFFFF;
 }
 .conatine h1{
     margin-top: 0px;
