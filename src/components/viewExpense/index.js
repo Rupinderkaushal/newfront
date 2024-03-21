@@ -52,17 +52,21 @@ const ViewExpense = ({ user }) => {
     return date.toLocaleDateString(locale, { weekday: "long" });
   }
 
-  function formatDate(dateString) {
-    const [day, month, year] = dateString.split('/');
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    return `${day}${getOrdinalSuffix(day)}${months[parseInt(month, 10) - 1]}${year}`;
-  }
+  const dateSetter =(dateString)=>{
+    const date = new Date(dateString);
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June", 
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const month = monthNames[date.getMonth()];
+const day = date.getDate();
+const year = date.getFullYear().toString().slice(-2);
 
-  function getOrdinalSuffix(day) {
-    const suffixes = ['th', 'st', 'nd', 'rd'];
-    const v = parseInt(day, 10) % 100;
-    return day + (suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]);
-  }
+// Format the date
+const formattedDate = `${month} ${day}, ${year}`;
+return formattedDate
+}
+ 
 
   return (
     <div>
@@ -87,11 +91,12 @@ const ViewExpense = ({ user }) => {
                 expenseList
                 .sort((a, b) => new Date(b.date) - new Date(a.date)) 
                 .map((val, index) => (
+                  
                   <tr style={{ color: "white" }} key={index}>
                     <td className="title-td">{val.title}</td>
                     <td>{val.amount}</td>
                     <td>{getDayName(new Date(val.date))}</td>
-                    <td>{formatDate(val.date)}</td>
+                    <td>{dateSetter(val.date)}</td>
                     <td className="edit-wrapper">
                       <button
                         onClick={() => editHandler(val._id)}
