@@ -146,7 +146,8 @@ const Expenses = () => {
           </p>
         </div>
         <div className="mob-nav"><p onClick={() => setCurrentPage("viewExpense")}>View </p>
-        <p onClick={() => setCurrentPage("addExpense")}>Add</p></div>
+        <p onClick={() => setCurrentPage("addExpense")}>Add</p>
+        <p onClick={() => setCurrentPage("expensebars")}>Bars</p></div>
         <div className="content-div">{renderPage()}</div>
       </div>
     </div>
