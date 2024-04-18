@@ -59,7 +59,7 @@
     font-family: "Regular";
     letter-spacing: 1px;
     border-collapse: collapse;
-    width: 85%;
+    width: 95%;
     margin: auto;
     margin-top: 50px;
     
@@ -250,10 +250,14 @@ tbody tr .edit-wrapper{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .table-div-wrapper{
     height: 330px;
     overflow-y: scroll;
+    width: 100%;
 }
 .table-div-wrapper::-webkit-scrollbar{
     display: none;

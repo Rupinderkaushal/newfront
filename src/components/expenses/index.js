@@ -10,6 +10,7 @@ import { AiOutlineFolderAdd, AiFillSignal } from "react-icons/ai";
 import { GiTargetDummy,GiHamburgerMenu } from "react-icons/gi";
 import AddExpense from "../addExpense";
 import ViewExpense from "../viewExpense";
+import BarGraph from "../charts/barGrapgh";
 
 const Expenses = () => {
   const [user, setUser] = useState();
@@ -33,6 +34,8 @@ const Expenses = () => {
         return <AddExpense />;
       case "viewExpense":
         return <ViewExpense user={user} />;
+        case"expensebars" : 
+        return <BarGraph/>
       default:
         return null;
     }
@@ -110,11 +113,12 @@ const Expenses = () => {
             Add Expense
           </p>
           
-          <p>
+          <p onClick={() => setCurrentPage("expensebars")}>
+            
             <span className="pre-list-icon">
               <GiTargetDummy size={30} />
             </span>{" "}
-            Dummy Bars
+            Expense Bars
           </p>
           <p>
             <span className="pre-list-icon">

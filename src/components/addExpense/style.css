@@ -30,6 +30,8 @@
 }
 .conatine .btn-div{
     width: 95%;
+    cursor: pointer;
+
 }
 .conatine .btn-div button{
     width: 50%;
@@ -48,7 +50,22 @@
     border: none;
     cursor: pointer;
 }
-@media(min-width:320px) and (max-width:768px){
+.try-select{
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: white;
+    border-bottom:  1px solid white;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+option{
+    background:#00246B;
+    padding: 10px !important;
+    font-size: 15px;
+    font-family: "Regular";
+}@media(min-width:320px) and (max-width:768px){
     .conatine .form-lottie-div{
         width: 95%;
         margin: auto;

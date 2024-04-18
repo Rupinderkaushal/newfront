@@ -1,0 +1,13 @@
+.bar-div{
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+    height: 70vh !important;
+    border-radius: 10px ;
+    box-shadow: 0 0 50px rgba(13,19,80,0.05);
+    padding: 20px;
+}
+canvas{
+    width: 100% !important;
+    height: 100% !important;
+}

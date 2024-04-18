@@ -42,6 +42,7 @@ const ViewExpense = ({ user }) => {
     setTotalAmount(total);
     setIsLoading(false);
   };
+  console.log("expenseList",expenseList)
   useEffect(() => {
     if (user) {
       expenseHandler();

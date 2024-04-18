@@ -6,14 +6,54 @@ import lottie from "lottie-web";
 import PremiumPic from "../../assets/premium_photo-1678823283274-358b3676fe5e.avif";
 import { GiHamburgerMenu } from "react-icons/gi";
 
+const content = ["Not Easy With Writting","Add Your Expense Online", "And Stay Relax", "Because Tree are usefull for oxygen"];
+const speed = 150;
+let isDeleting = false;
+let index = 0;
+let currentContentIndex = 0;
+export function typeWriter() {
+  const demoElement = document.getElementById("demo-div");
+  if (!demoElement) return; // Check if the demo element exists
 
+  if (isDeleting) {
+    // If deleting, remove the last character
+    demoElement.innerHTML = content[currentContentIndex].substring(0, index - 1);
+    index--;
 
+    // Check if all characters are deleted
+    if (index <= 0) {
+      isDeleting = false;
+      index = 0;
+      currentContentIndex = (currentContentIndex + 1) % content.length; // Move to the next content
+      setTimeout(typeWriter, 1000); // Pause before starting to type new content
+    } else {
+      // Continue deleting with a delay
+      setTimeout(typeWriter, speed);
+    }
+  } else {
+    // If typing, add the next character
+    demoElement.innerHTML = content[currentContentIndex].substring(0, index + 1);
+    index++;
+
+    // Check if we reached the end of the current content
+    if (index >= content[currentContentIndex].length) {
+      // Start deleting after a short pause
+      isDeleting = true;
+      setTimeout(typeWriter, 1000); // Pause before deleting
+    } else {
+      // Continue typing with a delay
+      setTimeout(typeWriter, speed);
+    }
+  }
+}
 const HomePage = () => {
   const container = useRef(null);
   const [isOpen,setIsOpen] = useState(false);
   const hamHandler=()=>{
     setIsOpen(!isOpen)
   };
+ 
+  
   useEffect(() => {
     lottie.loadAnimation({
       container: container.current,
@@ -26,6 +66,9 @@ const HomePage = () => {
       lottie.destroy();
     };
   }, []);
+  useEffect(()=>{
+    typeWriter()
+  },[])
   return (
     <div className='homepage-wrapper'>
         <div className='logo-link-div'>
@@ -50,9 +93,7 @@ const HomePage = () => {
         </div>
         <div className='text-lottie-div'>
           <div className='text-div'>
-            <h1>A Special Place </h1>
-            <h1>For Keep </h1>
-            <h1>Track of Expenses</h1>
+            <p id="demo-div"></p>
           </div>
           <div className='home-lottie-div' ref={container}></div>
         </div>

@@ -7,6 +7,7 @@ import {  toast } from 'react-toastify';
 
 
 
+
 const AddExpense = () => {
   const container = useRef(null);
   const navigate = useNavigate();
@@ -16,6 +17,9 @@ const AddExpense = () => {
         amount:"",
         date:"",
     });
+
+
+    const [loading,,setLoading] = useState(false)
     const handleChange=(e)=>{
         const{value,name}= e.target;
         setFormValues({...formValues,[name]: value})
@@ -25,6 +29,7 @@ const AddExpense = () => {
     };
     const submitHandler=async(e)=>{
         try {
+            setLoading(true)
             e.preventDefault();
             const resp = await axios.post('https://newback-vc3e.onrender.com/add-expenses',{
                 title:formValues.title,
@@ -33,6 +38,7 @@ const AddExpense = () => {
                 addedBy:user
             });
             if(resp.status === 200){
+                setLoading(false)
                 toast.success("added Successfully", {
                     position: "top-right", // Define the position here
                   });
@@ -40,6 +46,7 @@ const AddExpense = () => {
             }
             setFormValues({title:"",amount:"",date:""})
         } catch (error) {
+            setLoading(false)
             toast.success("Error during creation", {
                 position: "top-right", // Define the position here
               });
@@ -63,6 +70,7 @@ const AddExpense = () => {
           lottie.destroy();
         };
       }, []);
+      console.log("formValues",formValues)
   return (
     <div className='conatine'>
         {/* <button onClick={backhandler} className='goback-button'>Go Back</button> */}
@@ -72,11 +80,29 @@ const AddExpense = () => {
         <form onSubmit={submitHandler}>
             <div className='form-text'>
                 <label>Title</label><br/>
-                <input
+                {/* <input
                  name='title'
                  value={formValues.title}
                  onChange={handleChange}
-                placeholder='Enter Expense Title' />
+                placeholder='Enter Expense Title' /> */}
+                <select name='title' value={formValues.title} onChange={handleChange} className='try-select'>
+                    <option>Please Select One</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Auto Fair">Auto Fair</option>
+                    <option value="Diary Products">Diary Products</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Oil">Oil</option>
+                    <option value="Outside Food">Outside Food</option>
+                    <option value="Ride">Ride</option>
+                    <option value="Movie">Movie</option>
+                    <option value="Flour">Flour</option>
+                    <option value="Sugar">Sugar</option>
+                    <option value="Tea">Tea</option>
+                    <option value="Chili">Chili</option>
+                    <option value="Salt">Salt</option>
+                    <option value="Turmric Powder">Turmric Powder</option>
+                </select>
             </div>
             <div className='form-text'>
                 <label>Amount</label><br/>
@@ -96,7 +122,7 @@ const AddExpense = () => {
                 placeholder='Enter Expense Amount' />
             </div>
             <div className='btn-div'>
-                <button type='submit'>Add Expenses</button>
+                <button disabled={loading} type='submit'>Add Expenses</button>
             </div>
         </form>
         </div>
