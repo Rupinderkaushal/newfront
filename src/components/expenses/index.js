@@ -14,6 +14,7 @@ import BarGraph from "../charts/barGrapgh";
 
 const Expenses = () => {
   const [user, setUser] = useState();
+  const [barData, setBarData] = useState();
   const [gender, setGender] = useState();
   const [currentPage, setCurrentPage] = useState("viewExpense");
   const [isHamOpen,setIsHamOpen]=useState(false);
@@ -33,9 +34,9 @@ const Expenses = () => {
       case "addExpense":
         return <AddExpense />;
       case "viewExpense":
-        return <ViewExpense user={user} />;
+        return <ViewExpense setBarData={setBarData} user={user} />;
         case"expensebars" : 
-        return <BarGraph/>
+        return <BarGraph barData={barData}/>
       default:
         return null;
     }

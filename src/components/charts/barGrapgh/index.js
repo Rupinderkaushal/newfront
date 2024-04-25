@@ -11,16 +11,25 @@ const data = [
   { day: 'Sat', amount: 4500 },
   { day: 'Sun', amount: 150 },
 ];
+function getDayName(date = new Date(), locale = "en-US") {
+  return date.toLocaleDateString(locale, { weekday: "long" });
+}
 
-const BarGraph = () => {
+
+const BarGraph = ({barData}) => {
   const [expenseData,setExpenseData] = useState();
+  const realBarData = []
+  barData.map((val,index)=>{
+const dayName= getDayName(new Date(val.date))
+    realBarData.push({item:val.title, amount:val.amount})
+  })
   const config = {
-    data,
-    xField: 'day',
+    data:realBarData,
+    xField: 'item',
     yField: 'amount',
     scale: {
         y: {
-          domainMax: 5000,
+          domainMax: 2000,
           domainMin: 0,
         },
       },

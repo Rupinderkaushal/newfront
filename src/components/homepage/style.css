@@ -1,5 +1,4 @@
 .homepage-wrapper{
-    height: 100vh;
     background: #301505;
 }
 .logo-link-div {
@@ -95,6 +94,41 @@
     font-family: "Regular";
     font-size: 35px;
 }
+.howitworks{
+
+}
+.howitworks h1 {
+text-align: center;
+color: #FFFFFF;
+text-transform: uppercase;
+font-size: 45px;
+font-family: "Bold";
+}
+.howitworks ul{
+width: 45%;
+margin: auto;
+}
+
+.howitworks li{
+color: #FFFFFF;
+font-family: "Regular";
+line-height: 35px
+}
+.how-works-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+}
+.how-work-img-div {
+    width: 45%;
+}
+.how-work-img-div  img{
+    width: 100%;
+    border-radius: 10px;
+}
+
 @media(min-width:320px) and (max-width:768px){
 .web-links{
 display: none;

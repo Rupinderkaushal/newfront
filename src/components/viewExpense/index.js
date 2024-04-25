@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const ViewExpense = ({ user }) => {
+const ViewExpense = ({ user,setBarData }) => {
   const [expenseList, setExpenseList] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -35,6 +35,7 @@ const ViewExpense = ({ user }) => {
       `https://newback-vc3e.onrender.com/list-expenses/${user}`
     );
     setExpenseList(resp.data);
+    setBarData(resp.data)
     const total = resp.data.reduce(
       (acc, curr) => acc + parseFloat(curr.amount),
       0
@@ -42,7 +43,6 @@ const ViewExpense = ({ user }) => {
     setTotalAmount(total);
     setIsLoading(false);
   };
-  console.log("expenseList",expenseList)
   useEffect(() => {
     if (user) {
       expenseHandler();
