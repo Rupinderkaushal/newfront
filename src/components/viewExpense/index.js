@@ -70,7 +70,7 @@ return formattedDate
  
 
   return (
-    <div>
+    <div className="my-wrap">
       <div className="expense-list">
         <div className="btn-div">
           <h1>Expenses List</h1>
