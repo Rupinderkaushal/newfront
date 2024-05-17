@@ -1,9 +1,13 @@
 import React from 'react';
 import "./style.css";
+import CardTodo from './component';
 
 const Todo = () => {
+  const text = "jdjiowqdjkowqjdijwiqdwqiodjiwqodiowjdjwqiojdoiwqdowqdwqdijwqijdiowqjdjwqiojdwqi";
   return (
-    <div className='todo-handler'>This is Todo Handler</div>
+    <div className='todo-handler'>
+      <CardTodo text={text}/>
+    </div>
   )
 }
 

@@ -11,7 +11,8 @@ import AddExpense from './components/addExpense';
 import ProtectedRoutes from './privateRoutes';
 import Todo from './components/toDo';
 import NotFound from './components/notFound';
-
+import VideoComponent from './components/videos';
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div>
@@ -24,7 +25,8 @@ function App() {
       <Route path="/expenses" element={<Expenses />} />
       <Route path="/edit-expenses/:id" element={<EditExpenses />} />
       <Route path="/add-expense" element={<AddExpense/>}/>
-      <Route path="/todo" element={<Todo/>}/>
+      <Route path="/notes" element={<Todo/>}/>
+      <Route path='/fetch-videos' element={<VideoComponent/>} />
       </Route>
       <Route path="*" element={<NotFound/>}/>
       </Routes>

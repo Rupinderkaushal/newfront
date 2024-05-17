@@ -1,9 +1,26 @@
 .todo-handler{
     height: 100vh;
-    background: green;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
     font-family: "Medium";
     color: azure;
+    padding: 29px;
+}
+.todo-card{
+    border-radius: 10px;
+    min-height: 300px;
+    width: 300px;
+     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 10px;
+     display: flex;
+     flex-wrap: wrap;
+ 
+}
+.todo-card p{
+    width: 100%;
+    border:  red;
+    background: red;
+    box-sizing: border-box;
 }

@@ -11,15 +11,15 @@
     align-items: center;
     justify-content: space-around;
     height: 100vh;
-    background: black;
+    background: linear-gradient(#C33764,#1D2671);
 }
 .img-div{
     overflow: hidden;
-    background-color: white;
+    background-color: transparent;
     padding: 10px;
     border-radius: 20px;
     width: 40%;
-    height: 90vh;
+    height: 60vh;
 }
 .form-div{
     width: 100%;
@@ -44,6 +44,7 @@
  border-bottom: 1px solid #FFFFFF;
  letter-spacing: 1px;
  color: #FFFFFF;
+ outline: none;
 }
 .login-btn{
     width: 430px;
@@ -66,12 +67,14 @@
     color: #FFFFFF;
     font-family: "Regular";
     margin-right: 10px;
+    margin-bottom: 0px;
 }
 .signup{
     display: flex;
     align-items: center;
     justify-content: flex-start;
     font-family: "Regular";
+    margin-top: 20px;
 }
 .signup a{
     color: skyblue;

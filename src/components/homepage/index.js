@@ -6,6 +6,12 @@ import lottie from "lottie-web";
 import PremiumPic from "../../assets/premium_photo-1678823283274-358b3676fe5e.avif";
 import { GiHamburgerMenu } from "react-icons/gi";
 import works from "../../assets/homeage.jpg";
+import benefits from "../../assets/benefits.jpeg";
+import Carousel from 'react-bootstrap/Carousel';
+import { GiProgression } from "react-icons/gi";
+import { GrMoney } from "react-icons/gr";
+
+
 
 const content = ["Not Easy With Writting","Add Your Expense Online", "And Stay Relax", "Because Tree are usefull for oxygen"];
 const speed = 150;
@@ -78,9 +84,9 @@ const HomePage = () => {
           </div>
           <div className='web-links'>
             <NavLink to='/expenses'>Expenses</NavLink>
-            <NavLink to='/todo'>Todo</NavLink>
+            <NavLink to='/notes'>Notes</NavLink>
             <NavLink to='/suggestions'>Suggestions</NavLink>
-            <NavLink to='/goals'>Goals</NavLink>
+            <NavLink to='/fetch-videos'>Goals</NavLink>
           </div>
           <div className='mobile-ham' onClick={hamHandler}>
           <GiHamburgerMenu size={30} />
@@ -89,7 +95,7 @@ const HomePage = () => {
           <NavLink to='/expenses'>Expenses</NavLink>
             <NavLink to='/todo'>Todo</NavLink>
             <NavLink to='/suggestions'>Suggestions</NavLink>
-            <NavLink to='/goals'>Goals</NavLink>
+            <NavLink to='/fetch-videos'>Goals</NavLink>
             </div>}
         </div>
         <div className='text-lottie-div'>
@@ -99,7 +105,7 @@ const HomePage = () => {
           <div className='home-lottie-div' ref={container}></div>
         </div>
         <div className='howitworks'>
-          <h1>How it works</h1>
+          <h1>How it works <GiProgression/></h1>
           <div className='how-works-text'>
           <div className='how-work-img-div'>
               <img src={works} alt="works"/>
@@ -113,9 +119,9 @@ const HomePage = () => {
             
           </div>
         </div>
-        <div className='howitworks'>
-          <h1>Benefits</h1>
-          <div>
+        <div className='howitworks beenfits'>
+          <h1>Benefits <GrMoney/></h1>
+          <div className='how-works-text'>
             <ul>
               <li>
                 we Keep Track of your expenses. In a Modern Day World time is everything.Then why waste time on finding a notebook for adding expenses visit our site and add your daily expenses.
@@ -123,10 +129,12 @@ const HomePage = () => {
               <li>For that you have to create your account here which is free of cost.Then after login you will redirect to homepage where you can see add and update your expenses list.</li>
             </ul>
             <div className='how-work-img-div'>
-              <img src={works} alt="works"/>
+              <img src={benefits} alt="works"/>
             </div>
           </div>
         </div>
+
+        
         
     </div>
   )

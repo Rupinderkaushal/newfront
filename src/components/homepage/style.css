@@ -1,5 +1,5 @@
 .homepage-wrapper{
-    background: #301505;
+    background: linear-gradient(to right, #C33764, #1D2671); 
 }
 .logo-link-div {
     display: flex;
@@ -123,10 +123,20 @@ line-height: 35px
 }
 .how-work-img-div {
     width: 45%;
+    overflow: hidden;
 }
+
+
 .how-work-img-div  img{
     width: 100%;
     border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.how-work-img-div:hover img {
+    transform: scale(1.1); /* Scale the image up by 10% when hovering */
+}
+.beenfits{
+    margin-top: 30px;
 }
 
 @media(min-width:320px) and (max-width:768px){
